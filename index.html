@@ -6,52 +6,35 @@
     <link rel="stylesheet" href="style.css">
 
     <script>
-        function nightDayHandler(self){
-            var target = document.querySelector('body');
-            if(self.value==='night'){
-                target.style.backgroundColor='black';
-                target.style.color='white';
-                self.value='day';
-
-                var alist = document.querySelectorAll('a');
-                var i =0
-                while(i<alist.length){
-                alist[i].style.color='powderblue';
+        function LinksSetColor(color){
+            var alist = document.querySelectorAll('a');
+            var i = 0;
+            while(i<alist.length){
+                alist[i].style.color=color;
                 i=i+1;
-                }
-                
-            }else{
-                target.style.backgroundColor='white';
-                target.style.color='black';
-                self.value='night'
-
-                var alist = document.querySelectorAll('a');
-                var i =0
-                while(i<alist.length){
-                alist[i].style.color='blue';
-                i=i+1;
-                }
             }
         }
-
-        // Parameter & Argument
-        function sum(left,right){
-            document.write(left+right+'<br>');
+        function BodysSetColor(color){
+            document.querySelector('body').style.color=color;
         }
-        sum(3,7);
-        // 색깔을 넣으려고 할 때 함수를 하나 더 생성해야한다. 이런 문제를 해결하기 위해 return을 쓴다.
-        function sumColor(left,right){
-            document.write('<div style="color:green">'+(left+right)+'</div><br>');
+        function BodysSetBackgroundColor(color){
+            document.querySelector('body').style.backgroundColor=color;
         }
-        sumColor(6,3);
-
-        // return
-        function sum2(left,right){
-            // document.write(left+right+'<br>');
-            return left+right;
+        function nightDayHandler(self){
+            // var target = document.querySelector('body');
+            if(self.value==='night'){
+                BodysSetBackgroundColor('black');
+                BodysSetColor('white');
+                self.value='day';
+                LinksSetColor('Powderblue');
+                
+            }else{
+                BodysSetBackgroundColor('white');
+                BodysSetColor('black');
+                self.value='night'
+                LinksSetColor('blue');
+            }
         }
-        document.write('<div style="color:red">'+sum2(4,3)+'</div>');
-
     </script>
 
 </head>
