@@ -51,7 +51,7 @@
         coworkers["data scientist"] = "taeho";
         document.write("data scientist : "+coworkers["data scientist"]+"<br>")
     
-        
+
         // 객체 안에 담긴거 다 꺼내는 방법
         // 밑에 방법은 배열에서는 가능하지만 객체에서는 불가능하다
         var i = 0;
@@ -64,6 +64,25 @@
         for(var key in coworkers){
             document.write(key+" : "+coworkers[key]+"<br>");
         }
+
+
+        // Property & Method
+        // 객체에 소속된 함수 = Method
+        // 객체에 소속된 변수 = Property
+        coworkers.showAll = function(){
+            for(var key in coworkers){
+            document.write(key+" : "+coworkers[key]+"<br>");
+            }
+        }
+        coworkers.showAll();
+
+        // coworkers 라는 객체를 이름 변경 할지도 모르니 this로 변경해준다.
+        coworkers.showAll = function(){
+            for(var key in this){
+            document.write(key+" : "+this[key]+"<br>");
+            }
+        }
+        coworkers.showAll();
 
     </script>
 
