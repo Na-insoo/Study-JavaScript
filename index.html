@@ -5,22 +5,38 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     
-    
 </head>
 <body>
     <h1>
         <a href="index.html">JavaScript</a>
     </h1>
+    
     <input id="night_day" type="button" value="night" onclick="
     let target = document.querySelector('body');
+    
     if(document.querySelector('#night_day').value==='night'){
         target.style.backgroundColor='black';
         target.style.color='white';
-        this.value='day'
+        this.value='day';
+
+        var alist = document.querySelectorAll('a');
+        var i =0
+        while(i<alist.length){
+        alist[i].style.color='powderblue';
+        i=i+1;
+        }
+        
     }else{
         target.style.backgroundColor='white';
         target.style.color='black';
         this.value='night'
+
+        var alist = document.querySelectorAll('a');
+        var i =0
+        while(i<alist.length){
+        alist[i].style.color='blue';
+        i=i+1;
+        }
     }
     ">
         <ol>
