@@ -35,6 +35,22 @@
                 LinksSetColor('blue');
             }
         }
+
+        // Object -객체-
+        // 객체 담기 coworkers 변수 안에 programmer,designer 이라는 객체 이름을 만들어 준다.
+        var coworkers = {
+            "programmer":"egoing",
+            "designer":"leezche"
+        }
+        // 객체에 있는걸 꺼내는 방법! 
+        document.write("programmer: "+coworkers.programmer+"<br>");
+        document.write("designer: "+coworkers.designer+"<br>");
+        // 객체 안에 넣기
+        coworkers.bookkeeper = "duru";
+        // 객체 안에 넣기 2 ( 띄어쓰기 )
+        coworkers["data scientist"] = "taeho";
+        document.write("data scientist : "+coworkers["data scientist"]+"<br>")
+
     </script>
 
 </head>
