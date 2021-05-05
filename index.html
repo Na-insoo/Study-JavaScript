@@ -6,83 +6,42 @@
     <link rel="stylesheet" href="style.css">
 
     <script>
-        function LinksSetColor(color){
-            var alist = document.querySelectorAll('a');
-            var i = 0;
-            while(i<alist.length){
-                alist[i].style.color=color;
-                i=i+1;
+
+        // 중복되는 함수끼리 묶어서 객체화 시키기
+        var Links = {
+            setColor: function(color){
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while(i<alist.length){
+                    alist[i].style.color=color;
+                    i=i+1;
+                }
             }
         }
-        function BodysSetColor(color){
-            document.querySelector('body').style.color=color;
+        var Body = {
+            setColor: function(color){
+                document.querySelector('body').style.color=color;
+            },
+            setBackgroundColor: function(color){
+                document.querySelector('body').style.backgroundColor=color;
+            }
         }
-        function BodysSetBackgroundColor(color){
-            document.querySelector('body').style.backgroundColor=color;
-        }
+
         function nightDayHandler(self){
-            // var target = document.querySelector('body');
             if(self.value==='night'){
-                BodysSetBackgroundColor('black');
-                BodysSetColor('white');
+                Body.setBackgroundColor('black');
+                Body.setColor('white');
                 self.value='day';
-                LinksSetColor('Powderblue');
+                Links.setColor('Powderblue');
                 
             }else{
-                BodysSetBackgroundColor('white');
-                BodysSetColor('black');
+                Body.setBackgroundColor('white');
+                Body.setColor('black');
                 self.value='night'
-                LinksSetColor('blue');
+                Links.setColor('blue');
             }
         }
 
-        // Object -객체-
-        // 객체 담기 coworkers 변수 안에 programmer,designer 이라는 객체 이름을 만들어 준다.
-        var coworkers = {
-            "programmer":"egoing",
-            "designer":"leezche"
-        }
-        // 객체에 있는걸 꺼내는 방법! 
-        document.write("programmer: "+coworkers.programmer+"<br>");
-        document.write("designer: "+coworkers.designer+"<br>");
-        // 객체 안에 넣기
-        coworkers.bookkeeper = "duru";
-        // 객체 안에 넣기 2 ( 띄어쓰기 )
-        coworkers["data scientist"] = "taeho";
-        document.write("data scientist : "+coworkers["data scientist"]+"<br>")
-    
-
-        // 객체 안에 담긴거 다 꺼내는 방법
-        // 밑에 방법은 배열에서는 가능하지만 객체에서는 불가능하다
-        var i = 0;
-        while(i<coworkers.length){
-            document.write(coworkers[i]+'<br>');
-            i=i+1;
-        }
-
-        // 객체에서 반복문 사용하기
-        for(var key in coworkers){
-            document.write(key+" : "+coworkers[key]+"<br>");
-        }
-
-
-        // Property & Method
-        // 객체에 소속된 함수 = Method
-        // 객체에 소속된 변수 = Property
-        coworkers.showAll = function(){
-            for(var key in coworkers){
-            document.write(key+" : "+coworkers[key]+"<br>");
-            }
-        }
-        coworkers.showAll();
-
-        // coworkers 라는 객체를 이름 변경 할지도 모르니 this로 변경해준다.
-        coworkers.showAll = function(){
-            for(var key in this){
-            document.write(key+" : "+this[key]+"<br>");
-            }
-        }
-        coworkers.showAll();
 
     </script>
 
